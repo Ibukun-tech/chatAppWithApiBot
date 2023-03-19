@@ -5,6 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const openAiRouter = require("./Routes/OpenAi");
+const authRouter = require("./Routes/auth");
 // const { Configuration, OpenAIApi } = require("openai");
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(
 // });
 // const openai = new OpenAIApi(configuration);
 app.use("/openai", openAiRouter);
+app.use("/auth", authRouter);
 const port = process.env.PORT || 5000;
 // console.log(process.env);
 // module.exports = new OpenAIApi(configuration);
